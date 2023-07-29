@@ -24,7 +24,6 @@
 
   },
   "devDependencies": {
-    "tsc": "^2.0.4",
     "typescript": "^5.1.6",
     "css-loader": "^6.7.1",
     "dart-sass": "^1.25.0",
