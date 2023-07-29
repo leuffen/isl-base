@@ -1,0 +1,77 @@
+
+:root {
+    --layout-accordion-auto-open: true;
+}
+
+.use-accordion {
+    --joda-use: accordion();
+    --joda-class: as__accordion;
+}
+
+
+.as__accordion {
+
+    .section-h3 > .content, .section-h3 > .children {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.25s ease-out;
+    }
+     .open.section-h3 > .content,   .open.section-h3 > .children{
+        max-height: var(--orig-height);;
+
+    }
+
+    .section-h3 {
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.45s ease-out;
+    }
+
+    .section-h3.open {
+        background-color: var(--as-accordion-open-bg, rgba(220,224,229,.5));
+    }
+
+    .section-h3 > .content, .section-h3 > .children {
+        padding-left: 2.5rem;
+    }
+
+    .as__accordion-header {
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        margin-top: 2rem;
+        padding-bottom: 2rem;
+        h3 {
+            margin:0; padding:0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            &:hover {
+                background-color: var(--as-accordion-hover-bg, rgba(0, 0, 0, 0.02));
+            }
+        }
+
+
+    }
+
+
+
+    h3::before {
+        display: inline-block;
+        content: "";
+        width: 2.5rem;
+        flex-shrink: 0;
+        //width: 1.25rem;
+        height: 1em;
+        margin-right: 0;
+        vertical-align: middle;
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d374b'%3E%3Cpath d='M19,11.5v1a.5.5,0,0,1-.5.5H13v5.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V13H5.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H11V5.5a.5.5,0,0,1,.5-.5h1a.5.5,0,0,1,.5.5V11h5.5A.5.5,0,0,1,19,11.5Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 1.25rem;
+        background-position: center center;
+    }
+
+    .open h2::before, .open h3::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d374b'%3E%3Cpath d='M5.5,13a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h13a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5Z'/%3E%3C/svg%3E");
+    }
+
+}

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": false,
+    "declaration": true,
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+
+
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "lib": [
+      "es2021",
+      "dom"
+    ],
+
+  },
+  "include": [
+    "elements/**/*",
+    "*.html",
+    "index.ts",
+  ],
+  "exclude": [
+    "./test"
+  ]
+}

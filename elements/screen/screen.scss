@@ -1,0 +1,198 @@
+
+:root {
+    --layout-accordion-auto-open: true;
+}
+
+.use-screen-mobile {
+    --joda-use: screen();
+    --layout-type: mobile;
+}
+
+.use-screen-desktop {
+    --joda-use: screen();
+    --layout-type: desktop;
+}
+
+.use-screen-laptop {
+    --joda-use: screen();
+    --layout-type: laptop;
+}
+.use-screen-tablet {
+    --joda-use: screen();
+    --layout-type: tablet;
+}
+
+.as__screen {
+
+    display: block;
+    isolation: isolate; // Create new zindex stacking context
+
+    position: relative;
+    width: auto;
+
+    & > .as__screen-shadow {
+        position: absolute;
+        z-index: 0;
+    }
+
+    & > .as__screen-image {
+        position: absolute;
+        z-index: 1;
+        border-radius: 0.3%;
+    }
+
+    & > .as__screen-overlay {
+        position: absolute;
+        z-index: 2;
+
+    }
+
+    .as__screen-image img {
+        width: 100%;
+        height: 100%;
+        object-position: top center;
+        object-fit: cover;
+    }
+
+
+    &.mobile {
+
+        aspect-ratio: calc(1 / 1.92);
+
+        & > .as__screen-shadow {
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            top: -5%;
+            left: -4%;
+            width: 112%;
+            height: 115%;
+            opacity: 0.5;
+
+        }
+
+        & > .as__screen-image {
+            background-color: white;
+            top: 3%;
+            left: 8%;
+            width: 84%;
+            height: 94%;
+            overflow: hidden;
+        }
+
+        & > .as__screen-overlay {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+    }
+
+    &.laptop {
+
+        aspect-ratio: calc(1 / 0.58);
+
+        & > .as__screen-shadow {
+            background-size: 95%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            top: -4%;
+            left: -6%;
+            width: 112%;
+            height: 109%;
+            opacity: 0.5;
+
+        }
+
+        & > .as__screen-image {
+            background-color: white;
+            top: 6%;
+            left: 11%;
+            width: 78%;
+            height: 81%;
+            overflow: hidden;
+            z-index: 3;
+
+        }
+
+        & > .as__screen-overlay {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+    }
+
+    &.tablet {
+
+        aspect-ratio: calc(1 / 0.77);
+
+        & > .as__screen-shadow {
+            background-size: 95%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            top: -5%;
+            left: -6%;
+            width: 112%;
+            height: 110%;
+            opacity: 0.5;
+
+        }
+
+        & > .as__screen-image {
+            background-color: white;
+            top: 3%;
+            left: 3%;
+            width: 94%;
+            height: 95%;
+            overflow: hidden;
+
+        }
+
+        & > .as__screen-overlay {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+    }
+
+    &.desktop {
+
+        aspect-ratio: calc(1 / 0.82);
+
+        & > .as__screen-shadow {
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            top: -6%;
+            left: -2%;
+            width: 104%;
+            height: 112%;
+            opacity: 0.5;
+
+        }
+
+        & > .as__screen-image {
+            background-color: white;
+            top: 6%;
+            left: 2%;
+            width: 95.5%;
+            height: 63%;
+            overflow: hidden;
+            z-index: 3;
+
+        }
+
+        & > .as__screen-overlay {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+    }
+}
