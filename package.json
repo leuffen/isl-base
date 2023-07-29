@@ -10,8 +10,7 @@
   },
   "files": [
     "/dist",
-    "/src",
-    "/templates",
+    "/elements",
     "*.scss"
   ],
   "workspaces": [
