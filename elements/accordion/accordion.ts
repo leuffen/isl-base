@@ -1,6 +1,5 @@
 import {ka_create_element, ka_dom_ready, ka_html, ka_sleep, KaTemplate} from "@kasimirjs/embed";
 import {DefaultLayout, jodaRenderer, JodaRendererInterface, JodaUseRenderer} from "@leuffen/jodastyle";
-import {QTemplate} from "@leuffen/jodastyle/src/helper/QTemplate";
 
 
 // language=HTML
@@ -49,9 +48,6 @@ class Accordion implements JodaRendererInterface {
 
         });
 
-
-
-        console.log("auto open", layout);
         if (layout.accordion_auto_open) {
             element.querySelector(".section-h3")?.classList.add("open");
         }

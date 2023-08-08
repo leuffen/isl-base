@@ -1,6 +1,6 @@
 import {ka_create_element, ka_dom_ready, ka_html, ka_sleep, KaTemplate} from "@kasimirjs/embed";
 import {DefaultLayout, jodaRenderer, JodaRendererInterface, JodaUseRenderer} from "@leuffen/jodastyle";
-import {QTemplate} from "@leuffen/jodastyle/src/helper/QTemplate";
+import {QTemplate} from "@leuffen/jodastyle";
 
 
 const tplDefault = `
