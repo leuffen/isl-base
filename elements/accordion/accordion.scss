@@ -40,10 +40,14 @@
         color: inherit;
         margin-top: 2rem;
         padding-bottom: 2rem;
-        h3 {
+        h2,h3,h4 {
+            position:relative;
             margin:0; padding:0;
             padding-top: 1rem;
             padding-bottom: 1rem;
+            font-size: var(--accordion-header-font-size, 1.25rem);
+            padding-left: 2.5rem;
+            padding-right: 0.5rem;
             &:hover {
                 background-color: var(--as-accordion-hover-bg, rgba(0, 0, 0, 0.02));
             }
@@ -53,24 +57,27 @@
     }
 
 
+    h2,h3,h4{
+        &::before {position: absolute;
+            margin-left: -2.5rem;
+            display: block;
+            content: "";
+            width: 2.5rem;
+            flex-shrink: 0;
+            //width: 1.25rem;
+            height: 1em;
+            margin-right: 0;
+            vertical-align: middle;
 
-    h3::before {
-        display: inline-block;
-        content: "";
-        width: 2.5rem;
-        flex-shrink: 0;
-        //width: 1.25rem;
-        height: 1em;
-        margin-right: 0;
-        vertical-align: middle;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d374b'%3E%3Cpath d='M19,11.5v1a.5.5,0,0,1-.5.5H13v5.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V13H5.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H11V5.5a.5.5,0,0,1,.5-.5h1a.5.5,0,0,1,.5.5V11h5.5A.5.5,0,0,1,19,11.5Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: 1.25rem;
+            background-position: center center;
+        }
 
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d374b'%3E%3Cpath d='M19,11.5v1a.5.5,0,0,1-.5.5H13v5.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V13H5.5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5H11V5.5a.5.5,0,0,1,.5-.5h1a.5.5,0,0,1,.5.5V11h5.5A.5.5,0,0,1,19,11.5Z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-size: 1.25rem;
-        background-position: center center;
     }
 
-    .open h2::before, .open h3::before {
+    .open h2::before, .open h3::before, .open h4::before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d374b'%3E%3Cpath d='M5.5,13a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h13a.5.5,0,0,1,.5.5v1a.5.5,0,0,1-.5.5Z'/%3E%3C/svg%3E");
     }
 
