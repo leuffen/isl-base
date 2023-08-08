@@ -20,8 +20,7 @@
   "author": "",
   "dependencies": {
     "@kasimirjs/embed": "^1.0.8",
-    "@leuffen/jodastyle": "^1.0.6"
-
+    "@leuffen/jodastyle": "^1.0.7"
   },
   "devDependencies": {
     "typescript": "^5.1.6",
