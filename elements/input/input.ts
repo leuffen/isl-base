@@ -43,14 +43,39 @@ class Input implements JodaRendererInterface {
 
 
         if (element instanceof HTMLSelectElement) {
+            let options: [{value: string, label: string, disabled? : boolean, selected?: boolean}] = [];
+            // Default: No preset, no options
+            options.push({value: "", label: element.getAttribute("data-initial") ?? "", disabled: true, selected: true});
+
             if (element.hasAttribute("data-options")) {
-                let options = element.dataset.options.split(",").map((o : string) => {
-                    return {value: o, label: o};
-                });
-                for (let option of options) {
-                    let opt = ka_create_element("option", {value: option.value}, option.label);
-                    element.append(opt);
+                   // if dataset.options starts with [ tread as array, if { tread as object
+
+                if(element.dataset.options.startsWith("[")) {
+                    options.push(...JSON.parse(element.dataset.options).map((o: string) => {
+                        return {value: o, label: o};
+                    }));
+                } else if(element.dataset.options.startsWith("{")) {
+                    let data : any = JSON.parse(element.dataset.options);
+                    options = Object.keys(data).map((o: string) => {
+                        return {value: o, label: data[o]};
+                    });
+                } else {
+                    options.push(...element.dataset.options.split(",").map((o: string) => {
+                        return {value: o, label: o};
+                    }))
                 }
+
+            }
+            for (let option of options) {
+                let o = {value: option.value};
+                if (option.selected) {
+                    o.selected = "selected";
+                }
+                if (option.disabled) {
+                    o.disabled = "true"
+                }
+                let opt = ka_create_element("option", o, option.label);
+                element.append(opt);
             }
         }
 
@@ -62,7 +87,9 @@ class Input implements JodaRendererInterface {
             label: element.getAttribute("label") ?? element.getAttribute("name") ?? element.id
         });
 
-        if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
+        if (element instanceof HTMLSelectElement) {
+            element.classList.add("form-select");
+        } else if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
              element.classList.add("form-check-input");
         } else if (element instanceof HTMLInputElement && element.type === "submit") {
             element.classList.add("btn", "bn-primary");
