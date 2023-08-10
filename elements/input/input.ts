@@ -66,13 +66,13 @@ class Input implements JodaRendererInterface {
                 }
 
             }
-            for (let option : any of options) {
-                let o = {value: option.value};
+            for (let option of options) {
+                let o : any = {value: option.value};
                 if (option.selected) {
-                    o.selected = "selected";
+                    o["selected"] = "selected";
                 }
                 if (option.disabled) {
-                    o.disabled = "true"
+                    o["disabled"] = "true"
                 }
                 let opt = ka_create_element("option", o, option.label);
                 element.append(opt);
