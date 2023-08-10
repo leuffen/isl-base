@@ -43,7 +43,7 @@ class Input implements JodaRendererInterface {
 
 
         if (element instanceof HTMLSelectElement) {
-            let options: [{value: string, label: string, disabled? : boolean, selected?: boolean}] = [];
+            let options: any = [];
             // Default: No preset, no options
             options.push({value: "", label: element.getAttribute("data-initial") ?? "", disabled: true, selected: true});
 
@@ -66,7 +66,7 @@ class Input implements JodaRendererInterface {
                 }
 
             }
-            for (let option of options) {
+            for (let option : any of options) {
                 let o = {value: option.value};
                 if (option.selected) {
                     o.selected = "selected";
