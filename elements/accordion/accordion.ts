@@ -15,7 +15,7 @@ const tpl = `
 
 export class AccordionLayout extends DefaultLayout {
 
-    accordion_auto_open : boolean = true;
+    accordion_auto_open : string = "first";
 }
 
 @jodaRenderer("accordion", AccordionLayout)
@@ -48,7 +48,9 @@ class Accordion implements JodaRendererInterface {
 
         });
 
-        if (layout.accordion_auto_open) {
+        console.log("acc", layout);
+
+        if (layout.accordion_auto_open === "first") {
             element.querySelector(".section-h3")?.classList.add("open");
         }
         return element;
