@@ -35,14 +35,20 @@ class Map implements JodaRendererInterface {
         let main = new QTemplate(tpl);
         main.parse({layout});
 
-        console.log("MAP");
-        if ( ! element.hasAttribute("data-map-url")) {
-            console.warn("Missing data-map-url attribute on element", element);
+
+        let mapUrl = window["mapUrl"] ?? null;
+
+
+        if (element.hasAttribute("data-map-preview-url")) {
+            mapUrl = element.getAttribute("data-map-url");
+        }
+        if ( mapUrl === null) {
+            console.warn("Missing data-map-url attribute on element (nor window[mapUrl] is set)", element);
         }
 
         main.select("button").selected.addEventListener("click", () => {
             main.select("iframe").selected.removeAttribute("hidden");
-            main.select("iframe").selected.setAttribute("src", element.getAttribute("data-map-url"));
+            main.select("iframe").selected.setAttribute("src", mapUrl);
             main.select("overlay").selected.setAttribute("hidden", "true");
         });
 
