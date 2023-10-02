@@ -133,8 +133,8 @@
     }
 
     &.mobile {
-        .tjs-header1 {
-            &__top-bar {
+
+            .isl-navbar-switch1__top-bar {
                 justify-content: unset;
 
                 &--item {
@@ -144,7 +144,10 @@
                 }
             }
 
-            &__nav {
+
+
+
+            .isl-navbar-switch1__nav {
                 height: auto;
                 padding: rem(15px) rem(20px);
 
@@ -166,20 +169,8 @@
                 }
             }
 
-            &__hero {
-                &--col {
-                    flex-basis: 100%;
 
-                    &-text {
-                        text-align: center;
-                    }
 
-                    &-image {
-                        display: none;
-                    }
-                }
-            }
-        }
     }
 
 }

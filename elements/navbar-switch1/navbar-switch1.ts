@@ -4,7 +4,7 @@ import {Joda, JodaDescriptionManager} from "@leuffen/jodastyle";
 
 const html = `
 
-    <nav class="isl-navbar-switch1">
+    <nav class="isl-navbar-switch1 :: mobile :xl:">
 
         <div class="isl-navbar-switch1__top-bar container-xxl">
             <slot data-select="ul.navbar-top"></slot>
