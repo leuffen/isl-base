@@ -1,6 +1,6 @@
 {
   "name": "@leuffen/isl-base",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -19,8 +19,8 @@
   ],
   "author": "",
   "dependencies": {
-    "@kasimirjs/embed": "^1.0.8",
-    "@leuffen/jodastyle": "^2.0.2"
+    "@kasimirjs/embed": "^1.1.0",
+    "@leuffen/jodastyle": "2 - 3"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
