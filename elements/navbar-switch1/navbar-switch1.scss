@@ -1,17 +1,30 @@
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
 
 
 .isl-navbar-switch1 {
 
-    background: transparent linear-gradient(118deg, #E8F6FF 0%, #ECF2DC 100%) 0% 0% no-repeat padding-box;
-    padding: rem(15px) 0;
-    border-bottom: 1px solid #e5e5e5;
+    padding-top: 15px;
+    background: transparent;
+
 
     img {
         max-width: 100%;
     }
 
     &__top-bar {
-        margin-bottom: rem(15px);
+        margin-bottom: 15px;
 
         ul {
             display: flex;
@@ -20,16 +33,16 @@
             &>li {
                 list-style: none;
                 background: rgba(255, 255, 255, 0.6);
-                border-radius: 10px;
-                padding: rem(7px) rem(15px);
+                border-radius: 0;
+                padding: 7px 15px;
 
                 p {
                     margin-bottom: 0;
-                    font-size: rem(15px);
+                    font-size: 15px;
                     color: $black;
                 }
                 &:not(:last-child) {
-                   margin-right: rem(30px);
+                   margin-right: 30px;
                 }
                 a {
                        text-decoration: none;
@@ -40,27 +53,23 @@
 
     &__nav {
         background: $white;
-        border-radius: 10px;
+        border-radius: 0;
         width: 100%;
-        height: rem(80px);
+        height: 80px;
         align-content: center;
-        margin-bottom: rem(40px);
         box-shadow: 0px 1px 2px #00000029;
 
         &--inner {
             display: flex;
             justify-content: end;
             align-items: center;
-            @include col-side-paddings;
+
         }
 
         &--logo {
             margin-right: auto;
 
-            img {
-                height: rem(42px);
-                width: auto;
-            }
+
         }
 
         &--items {
@@ -75,12 +84,12 @@
                     display: inline-flex;
                     a {
 
-                        font-size: rem(18px);
+                        font-size: 18px;
                         font-weight: 500;
                         margin-right: 2rem;
-                        height: rem(80px);
-                        line-height: rem(80px);
-                        color: $font-main-color;
+                        height: 80px;
+                        line-height: 80px;
+                        color: var(--text-color, black);
                         padding: 0 1rem;
                         transition: 0.3s;
                         text-decoration: none;
@@ -100,17 +109,22 @@
         }
 
         &--mobile-menu {
+            opacity: 0.6;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
             div {
-                width: rem(35px);
-                height: rem(3px);
+                width: 35px;
+                height: 3px;
                 background-color: black;
-                margin: rem(6px) 0;
+                margin: 6px 0;
             }
         }
     }
 
     &__hero {
-        @include element-to-element-margin-medium;
+
 
         &--row {
             display: flex;
@@ -120,7 +134,7 @@
 
         &--col {
             flex-basis: 50%;
-            @include col-side-paddings;
+
 
             &-text {
                 text-align: left;
@@ -149,7 +163,7 @@
 
             .isl-navbar-switch1__nav {
                 height: auto;
-                padding: rem(15px) rem(20px);
+                padding: 15px 20px;
 
                 &--inner {
                     justify-content: unset;
@@ -162,15 +176,92 @@
                 }
 
                 &--logo {
-                    img {
-                        height: auto;
-                        width: 12rem;
-                    }
+
                 }
             }
 
 
 
     }
+
+    aside {
+        &>.backdrop {
+            position: fixed;
+            background-color: $dark;
+            opacity: 0.4;
+            top:0; bottom: 0; left: 0; right: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0%);
+            transition: all 0.1s ease-in-out;
+            z-index:9998;
+        }
+        &>.menu {
+
+
+            position: fixed;
+            top: 0; bottom: 0; right: 0;
+            width: 90vw;
+            max-width: 350px;
+            z-index: 9999;
+            transform: translateX(100%);
+            background-color: $dark;
+            // Do big black shadow
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            transition: all 0.2s ease-in-out;
+
+            ul {
+                padding: 0;
+                margin: 0;
+                &>li {
+                    list-style: none;
+                    width: 100%;
+                    &>a {
+                        &:hover {
+                            background-color: $primary;
+                        }
+
+                        display: block;
+                        text-decoration: none;
+                        width: 100%;
+                        padding: 15px;
+                        color: $white;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+
+            &>.menu-header {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255,255,0.5);
+                display: flex;
+                align-content: center;
+                justify-content: end;
+
+                &>svg {
+                    cursor: pointer;
+                    margin: 20px;
+                    color: $white;
+                    height: 38px;
+                    width: 38px;
+                }
+            }
+        }
+
+    }
+
+    &.sidebar {
+        aside {
+            &>.backdrop {
+                transform: scale(100%);
+            }
+            &>.menu {
+                transform: translateX(0%);
+            }
+
+
+        }
+    }
+
 
 }
