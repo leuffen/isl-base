@@ -43,6 +43,7 @@
                 border-radius: 0;
                 padding: 7px 15px;
 
+                height: 35px;
                 p {
                     margin-bottom: 0;
                     font-size: 15px;
@@ -180,6 +181,7 @@
             width: 100%;
             height: 100%;
             transform: scale(0%);
+            -webkit-transform: scale(0, 0);
             transition: all 0.1s ease-in-out;
             z-index:9998;
         }
@@ -241,6 +243,7 @@
         aside {
             &>.backdrop {
                 transform: scale(100%);
+                -webkit-transform: scale(100%, 100%);
             }
             &>.menu {
                 transform: translateX(0%);
