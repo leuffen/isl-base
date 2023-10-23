@@ -100,12 +100,16 @@ class Input implements JodaRendererInterface {
 
         if (element instanceof HTMLSelectElement) {
             element.classList.add("form-select");
+
         } else if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
              element.classList.add("form-check-input");
         } else if (element instanceof HTMLInputElement && element.type === "submit") {
             element.classList.add("btn", "bn-primary");
         } else {
             element.classList.add("form-control");
+            if (! element.hasAttribute("placeholder")) {
+                element.setAttribute("placeholder", label); // Important to have a placeholder for floating label
+            }
         }
 
         element.parentNode.replaceChild(main.content, element);
