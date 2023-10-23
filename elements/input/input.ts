@@ -80,12 +80,23 @@ class Input implements JodaRendererInterface {
         }
 
 
+        let label = element["name"] ?? element.id ??  "undefinded";
+        if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
+            label = element.value;
+        }
+        if (element.hasAttribute("label")) {
+            label = element.getAttribute("label");
+        }
+        if (element.hasAttribute("data-label")) {
+            label = element.getAttribute("data-label");
+        }
         main.parse({
             layout,
-            classes: layout.classes + " " + element.getAttribute("data-class") ?? "",
+            classes: layout.classes + " " + element.getAttribute("class") ?? "",
             id: element.id,
-            label: element.getAttribute("label") ?? element.getAttribute("name") ?? element.id
+            label: label
         });
+        element.setAttribute("class", "");
 
         if (element instanceof HTMLSelectElement) {
             element.classList.add("form-select");
