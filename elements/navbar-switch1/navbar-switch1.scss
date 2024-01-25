@@ -175,7 +175,7 @@
     aside {
         &>.backdrop {
             position: fixed;
-            background-color: $dark;
+            background-color: var(--nav-sidbar-backgrond-color, $primary);
             opacity: 0.4;
             top:0; bottom: 0; left: 0; right: 0;
             width: 100%;
@@ -194,7 +194,7 @@
             max-width: 300px;
             z-index: 9999;
             transform: translateX(100%);
-            background-color: $dark;
+            background-color: var(--nav-sidbar-backgrond-color, $primary);
             // Do big black shadow
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             transition: all 0.2s ease-in-out;
@@ -207,7 +207,7 @@
                     width: 100%;
                     &>a {
                         &:hover {
-                            background-color: $primary;
+                            background-color: var(--nav-sidbar-backgrond-color-hover, darken($primary, 10%));
                         }
 
                         display: block;
