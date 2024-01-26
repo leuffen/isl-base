@@ -118,17 +118,29 @@
         }
 
         &--mobile-menu {
+            position: relative;
+            width: 35px;
+            height: 30px;
             opacity: 0.6;
             cursor: pointer;
+
+            &-selector {
+                position: absolute;
+                padding: 20px; // Make the clickable area bigger
+                margin: -20px; // Make the clickable area bigger
+                z-index: 3;
+                div {
+                    width: 35px;
+                    height: 3px;
+                    background-color: black;
+                    margin: 6px 0;
+                }
+            }
+
             &:hover {
                 opacity: 1;
             }
-            div {
-                width: 35px;
-                height: 3px;
-                background-color: black;
-                margin: 6px 0;
-            }
+
         }
     }
 
