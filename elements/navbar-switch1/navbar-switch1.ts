@@ -18,10 +18,13 @@ const html = `
                     <div class="isl-navbar-switch1__nav--items">
                         <slot data-select="ul.navbar-main" data-child-class="isl-navbar-switch1__nav--items-item"></slot>
                     </div>
-                    <div class="isl-navbar-switch1__nav--mobile-menu :: :xl: d-none" onclick="this.closest('nav').classList.toggle('sidebar')">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div class="isl-navbar-switch1__nav--mobile-menu :: :xl: d-none" >
+                        <div class="isl-navbar-switch1__nav--mobile-menu-selector" onclick="this.closest('nav').classList.toggle('sidebar')">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
