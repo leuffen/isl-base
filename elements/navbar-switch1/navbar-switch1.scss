@@ -19,12 +19,7 @@
     background: transparent;
 
 
-    &.floating {
-        position: absolute;
-        top:0;
-        left:0;
-        right:0;
-    }
+
 
     img {
         max-width: 100%;
@@ -132,10 +127,20 @@
         }
     }
 
-
+    &.floating {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        z-index: 999;
+    }
 
     &.mobile {
 
+        &.floating {
+            position: static;
+
+        }
             .isl-navbar-switch1__top-bar {
                 justify-content: unset;
 
