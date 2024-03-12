@@ -32,6 +32,9 @@ class Input implements JodaRendererInterface {
     render(element: HTMLElement, layout: InputLayout): HTMLElement {
         let main = new QTemplate(tplDefault);
         if (element instanceof HTMLInputElement ) {
+            if (element.type === "hidden") {
+                return element;
+            }
             if (element.type === "checkbox" || element.type === "radio") {
                 main = new QTemplate(tplCheckbox);
             } else if (element.type === "submit") {
@@ -104,7 +107,7 @@ class Input implements JodaRendererInterface {
         } else if (element instanceof HTMLInputElement && (element.type === "checkbox" || element.type === "radio")) {
              element.classList.add("form-check-input");
         } else if (element instanceof HTMLInputElement && element.type === "submit") {
-            element.classList.add("btn", "bn-primary");
+            element.classList.add("btn", "btn-primary");
         } else {
             element.classList.add("form-control");
             if (! element.hasAttribute("placeholder")) {
