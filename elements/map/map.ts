@@ -39,12 +39,24 @@ class Map implements JodaRendererInterface {
         let mapUrl = window["mapUrl"] ?? null;
 
 
-        if (element.hasAttribute("data-map-preview-url")) {
+
+        if (element.hasAttribute("data-map-url")) {
             mapUrl = element.getAttribute("data-map-url");
         }
         if ( mapUrl === null) {
             console.warn("Missing data-map-url attribute on element (nor window[mapUrl] is set)", element);
         }
+
+        // Observe the data-map-url attribute and update it on the iframe
+        let observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === "data-map-url") {
+                    let newValue = element.getAttribute("data-map-url");
+                    main.select("iframe").selected.setAttribute("src", newValue);
+                }
+            });
+        });
+        observer.observe(element, {attributes: true});
 
         main.select("button").selected.addEventListener("click", () => {
             main.select("iframe").selected.removeAttribute("hidden");
