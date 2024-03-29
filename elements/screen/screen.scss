@@ -10,14 +10,21 @@
         left: -5%;
         width: 30%;
     }
+    &>.as-screens__desktop {
+        transform: translateX(0%);
+        transition: all 0.5s;
+    }
 
     transition: all 0.3s;
     transform: scale(100%);
     &:hover {
         transform: scale(110%);
         &>.as-screens__mobile {
-            left: -10%;
+            left: -6%;
 
+        }
+        &>.as-screens__desktop {
+            transform: translateX(5%);
         }
     }
 }
