@@ -1,14 +1,14 @@
 import {ka_create_element, ka_dom_ready, ka_html, ka_sleep, KaTemplate} from "@kasimirjs/embed";
-import {DefaultLayout, jodaRenderer, JodaRendererInterface, JodaUseRenderer} from "@leuffen/jodastyle";
+import {DefaultLayout, Joda, jodaRenderer, JodaRendererInterface, JodaUseRenderer} from "@leuffen/jodastyle";
 import {QTemplate} from "@leuffen/jodastyle";
 
 
 // language=HTML
 const tpl = `
     <div class="as__screen [[layout.type]]">
-        <div class="as__screen-shadow" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]]-shadow.svg);"></div>
-        <div class="as__screen-image" data-ref="image"></div>
-        <div class="as__screen-overlay" style="background-image: url([[layout.cdnBaseUrl]]/screens/[[layout.type]].svg)"></div>
+        <div class="as__screen-shadow" style="background-image: url(https://cdn.leuffen.de/hyperpage-components/v1.0/screens/[[layout.type]]-shadow.svg);"></div>
+        <slot class="as__screen-image" data-select="img"></slot>
+        <div class="as__screen-overlay" style="background-image: url(https://cdn.leuffen.de/hyperpage-components/v1.0/screens/[[layout.type]].svg)"></div>
     </div>
 `;
 
@@ -18,6 +18,21 @@ export class ScreenLayout extends DefaultLayout {
     cdnBaseUrl: string = "https://cdn.leuffen.de/hyperpage-components/v1.0";
     type: string = "mobile";
 }
+
+
+Joda.registerTemplate("screen", tpl, {type: "desktop"});
+
+
+
+// language=HTML
+const tplScreens = `
+    <div class="as__screens">
+        <slot class="as-screens__desktop" data-select="img.desktop || img:not(.mobile)" layout="use: #screen; type: desktop;"></slot>
+        <slot class="as-screens__mobile" data-select="img.mobile || img:not(.desktop)" layout="use: #screen; type: mobile;"></slot>
+    </div>
+`;
+
+Joda.registerTemplate("screens", tplScreens, {type: "desktop"});
 
 @jodaRenderer("screen", ScreenLayout)
 class Screen implements JodaRendererInterface {

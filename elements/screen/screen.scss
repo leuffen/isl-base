@@ -1,26 +1,26 @@
+.as__screens {
+    position: relative;
+    &>.emptyslot {
+        display: none;
+    }
+    &>.as-screens__mobile {
+            transition: all 0.5s;
+        position: absolute;
+        bottom: 0%;
+        left: -5%;
+        width: 30%;
+    }
 
-:root {
-}
+    transition: all 0.3s;
+    transform: scale(100%);
+    &:hover {
+        transform: scale(110%);
+        &>.as-screens__mobile {
+            left: -10%;
 
-.use-screen-mobile {
-    --joda-use: screen();
-    --layout-type: mobile;
+        }
+    }
 }
-
-.use-screen-desktop {
-    --joda-use: screen();
-    --layout-type: desktop;
-}
-
-.use-screen-laptop {
-    --joda-use: screen();
-    --layout-type: laptop;
-}
-.use-screen-tablet {
-    --joda-use: screen();
-    --layout-type: tablet;
-}
-
 .as__screen {
 
     display: block;
@@ -35,12 +35,14 @@
     }
 
     & > .as__screen-image {
+        display: block;
         position: absolute;
         z-index: 1;
         border-radius: 0.3%;
     }
 
     & > .as__screen-overlay {
+
         position: absolute;
         z-index: 2;
 
@@ -71,6 +73,8 @@
         }
 
         & > .as__screen-image {
+            display: block;
+
             background-color: white;
             top: 3%;
             left: 8%;
@@ -105,6 +109,8 @@
         }
 
         & > .as__screen-image {
+            display: block;
+
             background-color: white;
             top: 6%;
             left: 11%;
@@ -141,6 +147,8 @@
         }
 
         & > .as__screen-image {
+            display: block;
+
             background-color: white;
             top: 3%;
             left: 3%;
@@ -176,6 +184,7 @@
         }
 
         & > .as__screen-image {
+            display: block;
             background-color: white;
             top: 6%;
             left: 2%;
