@@ -1,0 +1,109 @@
+@import "ani_keyframes";
+.ani-container {
+    animation-timing-function: ease-in-out;
+
+    &.ani-start {
+
+        @import "ani-child-sequence";
+
+        .ani {
+            animation: var(--layout-animation-duration) var(--layout-animation-name);
+            animation-delay: var(--animation-delay);
+            animation-fill-mode: both;
+        }
+    }
+}
+
+:root {
+    --layout-animation-duration: 0.5s;
+    --layout-animation-delay-base: 0.1s;
+    --layout-animation-name: ani-fadeIn;
+}
+
+.ani-standalone {
+    &.ani-child-seq {
+        &> * {
+            animation: var(--layout-animation-duration) var(--layout-animation-name);
+            animation-delay: var(--animation-delay);
+            animation-fill-mode: both;
+        }
+        & > :nth-child(1) {
+            --animation-delay: calc(var(--layout-animation-delay-base, 0.2s) * 1);
+        }
+        & > :nth-child(2) {
+            --animation-delay: calc(var(--layout-animation-delay-base, 0.2s) * 2);
+        }
+        & > :nth-child(3) {
+            --animation-delay: calc(var(--layout-animation-delay-base, 0.2s) * 3);
+        }
+        & > :nth-child(4) {
+            --animation-delay: calc(var(--layout-animation-delay-base, 0.2s) * 4);
+        }
+        & > :nth-child(5) {
+            --animation-delay: calc(var(--layout-animation-delay-base, 0.2s) * 5);
+        }
+    }
+
+    &.ani-start {
+        &.ani {
+            animation: var(--layout-animation-duration) var(--layout-animation-name);
+            animation-delay: var(--animation-delay); animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
+        }
+        opacity: 1;
+    }
+    opacity: 0;
+
+}
+
+.ani-speed-1 {
+    --layout-animation-duration: 0.5s;
+}
+.ani-speed-2 {
+    --layout-animation-duration: 1s;
+}
+.ani-speed-3 {
+    --layout-animation-duration: 4s;
+}
+
+.ani-delay-base-1 {
+    --layout-animation-delay-base: 0.1s;
+}
+.ani-delay-base-2 {
+    --layout-animation-delay-base: 0.4s;
+}
+.ani-delay-base-3 {
+    --layout-animation-delay-base: 0.8s;
+}
+
+// Delay every child element in a sequence
+
+
+.ani-delay-1 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 1);
+}
+.ani-delay-2 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 2);
+}
+.ani-delay-3 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 3);
+}
+.ani-delay-4 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 4);
+}
+.ani-delay-5 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 5);
+}
+.ani-delay-6 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 6);
+}
+.ani-delay-7 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 7);
+}
+.ani-delay-8 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 8);
+}
+.ani-delay-9 {
+    --animation-delay: calc(var(--layout-animation-delay-base, 0.1s) * 9);
+}
+
